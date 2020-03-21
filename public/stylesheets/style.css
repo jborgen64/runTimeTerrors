@@ -2,3 +2,12 @@ form.signup,
 form.login {
   margin-top: 50px;
 }
+
+.logsign-pic {
+  height: 100%;
+  width: 100%;
+}
+
+.signs-up {
+  height: 800px;
+}
