@@ -9,43 +9,10 @@ app.get("/api/posts/", function (req, res){
       res.json(myhero_DB);
     });
 
-    app.get("/api/posts/category/:category", function(req, res) {
-      db.Post.findAll({
-        where: {
-          category: req.params.category
-        }
-      })
-        .then(function(myhero_DB) {
-          res.json(myhero_DB);
-        });
-    });
-
-    app.get("/api/posts/:id", function(req, res) {
+   app.get("/api/posts/:id", function(req, res) {
       db.Post.findOne({
         where: {
           id: req.params.id
-        }
-      })
-        .then(function(myhero_DB) {
-          res.json(myhero_DB);
-        });
-    });
-
-    app.get("/api/posts/author/:author", function(req, res) {
-      db.Post.findAll({
-        where: {
-          author: req.params.author
-        }
-      })
-        .then(function(myhero_DB) {
-          res.json(myhero_DB);
-        });
-    });
-
-    app.get("/api/posts/title/:title", function(req, res) {
-      db.Post.findAll({
-        where: {
-          title: req.params.title
         }
       })
         .then(function(myhero_DB) {
