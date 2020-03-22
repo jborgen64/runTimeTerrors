@@ -1,0 +1,20 @@
+form.signup,
+form.login,
+form.search {
+  margin-top: 50px;
+}
+
+.logsign-pic {
+  height: 100%;
+  width: 100%;
+  padding: 0px;
+}
+
+.signs-up {
+  height: 800px;
+  padding: 0px;
+}
+
+.background {
+  background-image: url("/images/loginphoto.jpg");
+}

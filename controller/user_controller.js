@@ -8,7 +8,9 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 // Create routes
 router.get("/", function(req, res) {
     
-    res.render("index");
+    res.render("index", {
+      style: "signup.css"
+    });
   
 });
 
@@ -17,7 +19,9 @@ router.get("/login", function(req, res) {
   if (req.user) {
     res.redirect("/members");
   }
-  res.render("login");
+  res.render("login", {
+    style: "login.css"
+  });
 });
 
 router.get("/members", isAuthenticated, function(req, res) {
