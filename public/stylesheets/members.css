@@ -1,0 +1,68 @@
+.favicon {
+  height: 50px;
+  width: 50px;
+}
+  
+.navGuys {
+  margin: 20px auto;
+}
+
+.navvy {
+  background: inherit;
+}
+
+.navHolder {
+  margin: 20px auto;
+}
+
+.member {
+  height: 800px;
+  padding: 0px;
+}
+
+.background {
+  background-image: url("/images/superman.jpeg");
+}
+
+.searchContainer {
+  float: left;
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+.dashboard {
+  display: none;
+  float: left;
+}
+
+#historyTitles {
+  border-bottom: 1px solid;
+  border-left: 1px solid;
+  border-right: 1px solid;
+  border-color: grey;
+  font-size: 24px;
+  margin: 10px;
+}
+
+#savedTitles {
+  border-bottom: 1px solid;
+  border-left: 1px solid;
+  border-right: 1px solid;
+  border-color: grey;
+  font-size: 24px;
+  margin: 10px;
+}
+
+.searchBar {
+width: 600px;
+}
+
+.searchResult {
+  float: left;
+  margin: 20px;
+}
+
+.searchInput {
+  font-size: 70px;
+  font: white;
+}

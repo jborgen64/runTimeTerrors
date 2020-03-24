@@ -1,5 +1,6 @@
 form.signup,
-form.login {
+form.login,
+form.search {
   margin-top: 50px;
 }
 
