@@ -23,10 +23,10 @@ $('.searchBtn').on('click', function(){
 });
 
 
-//rotating background for each click
-const backgroundPics = ['superman.jpeg', 'wolverine.jpeg', 'wonder.jpeg', 'martian.jpeg'];
+// //rotating background for each click
+// const backgroundPics = ['superman.jpeg', 'wolverine.jpeg', 'wonder.jpeg', 'martian.jpeg'];
 
-backgroundPics.forEach(function(pics) {
-    $('.background').css({'background-image': `url(/images/${pics[i]})`);
-});
+// backgroundPics.forEach(function(pics) {
+//     $('.background').css({'background-image': `url(/images/${pics[i]})`);
+// });
     
