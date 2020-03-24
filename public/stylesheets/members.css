@@ -24,8 +24,15 @@
   background-image: url("/images/superman.jpeg");
 }
 
+.searchContainer {
+  float: left;
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
 .dashboard {
   display: none;
+  float: left;
 }
 
 #historyTitles {
@@ -44,4 +51,18 @@
   border-color: grey;
   font-size: 24px;
   margin: 10px;
+}
+
+.searchBar {
+width: 600px;
+}
+
+.searchResult {
+  float: left;
+  margin: 20px;
+}
+
+.searchInput {
+  font-size: 70px;
+  font: white;
 }
