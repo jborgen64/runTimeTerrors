@@ -1,4 +1,16 @@
-body {
-    background-image: url("/images/batman.jpg");
-  }
+.favicon {
+  height: 50px;
+  width: 50px;
+}
   
+.navGuys {
+  margin: 20px auto;
+}
+
+.navHolder {
+  margin: 20px auto;
+}
+
+body {
+  background-image: url("images/superman.jpeg");
+}
