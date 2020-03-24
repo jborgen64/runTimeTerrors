@@ -1,3 +1,5 @@
+import { urlencoded } from "express";
+
 //nav items display dashboard and seach divs
 $('#searchDisplay').on('click', function(){
     $('.dashboard').hide(200);
@@ -18,6 +20,13 @@ $('.searchBtn').on('click', function(){
     console.log(results);
     const resultsDisp = $(`<div class="searchInput">${results}<div>`);
     $('.searchResult').append(resultsDisp);
-
-    
 });
+
+
+//rotating background for each click
+const backgroundPics = ['superman.jpeg', 'wolverine.jpeg', 'wonder.jpeg', 'martian.jpeg'];
+
+backgroundPics.forEach(function(pics) {
+    $('.background').css({'background-image': `url(/images/${pics[i]})`);
+});
+    
