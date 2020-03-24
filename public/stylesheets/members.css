@@ -7,10 +7,19 @@
   margin: 20px auto;
 }
 
+.navvy {
+  background: inherit;
+}
+
 .navHolder {
   margin: 20px auto;
 }
 
-body {
-  background-image: url("images/superman.jpeg");
+.member {
+  height: 800px;
+  padding: 0px;
+}
+
+.background {
+  background-image: url("/images/superman.jpeg");
 }
