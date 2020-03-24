@@ -1,18 +1,20 @@
 const axios = require('axios');
 
-$('#button').on('click',function() {
-
 async function makeRequest() {
 
+    const searchparam = $("#search").val();
+
     const config = {
-        method: 'get',
-        url: `http://localhost:3000/https://comicvine.gamespot.com/api/characters?api_key=6d585bd220603de589bc80707c5dbd370ac7f030&format=json&filter=name:${searchparam}&field_list=name`
+        method: 'GET',
+        url: `https://comicvine.gamespot.com/api/characters?api_key=6d585bd220603de589bc80707c5dbd370ac7f030&format=json&filter=name:${searchparam}&field_list=name`
     }
 
     let res = await axios(config)
 
     console.log(res.status);
 }
+
+$('#button').on('click',function() {
 
 makeRequest();
 
