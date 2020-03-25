@@ -14,7 +14,7 @@ async function makeRequest() {
     console.log(res.status);
 }
 
-$('#button').on('click',function() {
+$('#searchBtn').on('click',function() {
 
 makeRequest();
 
