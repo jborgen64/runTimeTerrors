@@ -1,5 +1,5 @@
-var db = require("../models");
-var passport = require("../config/passport");
+var db = require("../../../models");
+
 
 module.exports = function(app) {
 
