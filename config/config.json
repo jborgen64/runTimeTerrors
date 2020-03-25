@@ -1,7 +1,11 @@
 {
   "development": {
     "username": "root",
+<<<<<<< HEAD
     "password": "Password",
+=======
+    "password": "phimualpha1898",
+>>>>>>> 95af675fbd32ec10167f342a29be26f99d842be2
     "database": "myhero_DB",
     "host": "127.0.0.1",
     "dialect": "mysql"
