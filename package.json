@@ -22,8 +22,6 @@
     "nodemon": "^2.0.2",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
-    "require.js": "^1.0.0",
-    "requirejs": "^2.3.6",
     "sequelize": "^5.8.6"
   },
   "devDependencies": {
