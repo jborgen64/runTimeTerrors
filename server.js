@@ -3,7 +3,7 @@ var express = require("express");
 var session = require("express-session");
 // Requiring passport as we've configured it
 var passport = require("./config/passport");
-const route = require("./controller/services/api_services");
+
 
 // Setting up port and requiring models for syncing
 var PORT = process.env.PORT || 8080;
@@ -18,7 +18,6 @@ app.use(express.static("public"));
 app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(route);
 // Set Handlebars.
 var exphbs = require("express-handlebars");
 

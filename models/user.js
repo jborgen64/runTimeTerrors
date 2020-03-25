@@ -18,7 +18,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     saved: {
-      type: DataTypes.text,
+      type: DataTypes.TEXT,
       allowNull: true
     }
   });
