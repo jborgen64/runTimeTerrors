@@ -6,7 +6,7 @@ async function makeRequest() {
 
     const config = {
         method: 'GET',
-        url: `https://comicvine.gamespot.com/api/characters?api_key=6d585bd220603de589bc80707c5dbd370ac7f030&format=json&filter=name:${searchparam}&field_list=name`
+        url: `https://comicvine.gamespot.com/api/volumes/?api_key=6d585bd220603de589bc80707c5dbd370ac7f030&format=json&sort=name:asc&filter=name:Walking%20Dead`
     }
 
     let res = await axios(config)

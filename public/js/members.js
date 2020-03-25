@@ -1,5 +1,3 @@
-import { urlencoded } from "express";
-
 //nav items display dashboard and seach divs
 $('#searchDisplay').on('click', function(){
     $('.dashboard').hide(200);
