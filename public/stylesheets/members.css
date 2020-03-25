@@ -22,6 +22,10 @@
 
 .background {
   background-image: url("/images/superman.jpeg");
+  background-repeat: repeat-y;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: 100%;
 }
 
 .searchContainer {
