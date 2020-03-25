@@ -27,7 +27,7 @@ app.set("view engine", "handlebars");
 
 // Import routes and give the server access to them.
 var routes = require("./controller/user_controller.js");
-app.use(routes);
+app.use(routes)
 
 require("./controller/services/authServices.js")(app);
 
