@@ -2,7 +2,7 @@ const axios = require('axios');
 
 async function makeRequest() {
 
-    const searchparam = $("#search").val();
+    const searchparam = $("#search").results();
 
     const config = {
         method: 'GET',
