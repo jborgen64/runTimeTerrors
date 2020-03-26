@@ -1,3 +1,11 @@
+// gets the current user for later use
+let currentUser;
+let currentUserSavedData;
+
+$.get("/api/user_data").then(function(data) {
+  currentUser = data.id;
+});
+
 //nav items display dashboard and seach divs
 $("#searchDisplay").on("click", function() {
   $(".dashboard").hide(200);
@@ -26,6 +34,7 @@ $(".searchBtn").on("click", function() {
 
 // code below is for saving data to database, and receiving data from database //
 
+// this code allows me to use $.put and $.delete
 jQuery.each(["put", "delete"], function(i, method) {
   jQuery[method] = function(url, data, callback, type) {
     if (jQuery.isFunction(data)) {
@@ -44,17 +53,11 @@ jQuery.each(["put", "delete"], function(i, method) {
   };
 });
 
-let currentUser;
-let currentUserSavedData;
-
-$.get("/api/user_data").then(function(data) {
-  currentUser = data.id;
-});
-
-$("#savebutton").on("click", function() {
-  $.get("/api/save/" + currentUser)        
-    .then(function(response) {             
-      console.log("I tried to get");     
+// function to save new comic to database
+const saveNewComic = () => {
+  $.get("/api/save/" + currentUser)
+    .then(function(response) {
+      console.log("I tried to get");
       console.log(response);
       let newValue = prompt("What should I save?");
       let newKey = Math.floor(Math.random() * 100000000000000);
@@ -72,18 +75,19 @@ $("#savebutton").on("click", function() {
     .catch(function(err) {
       console.log(err);
     });
-});
+};
 
-$("#getbutton").on("click", function(event) {
+// function to receive user saved data
+const getUserSaved = () => {
   $(".searchResult").empty();
-  $.get("/api/save/" + currentUser)        
-    .then(function(response) {             
-      console.log("I tried to get");        // after we get obj, we need to add to it by doing object.newkey = new value
+  $.get("/api/save/" + currentUser)
+    .then(function(response) {
+      console.log("I tried to get");
       console.log(response);
       currentUserSavedData = Object.values(response);
 
-      currentUserSavedData.forEach(value => {     
-        let holder = $("<div>");                  
+      currentUserSavedData.forEach(value => {
+        let holder = $("<div>");
         let displayEl = $("<h1>").text(value);
         displayEl.addClass("white-text");
         holder.append(displayEl);
@@ -93,7 +97,7 @@ $("#getbutton").on("click", function(event) {
     .catch(function(err) {
       console.log(err);
     });
-});
+};
 
 //================================================================//
 //================================================================//
