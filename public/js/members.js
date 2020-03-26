@@ -30,7 +30,8 @@ $('.searchBtn').on('click', function(){
     const results = $('.searchItem').val().trim();
     console.log(results);
     const resultsDisp = $(`<div class="searchInput">${results}<div>`);
-    $('.searchResult').append(resultsDisp);
+    $('.searchResult').append(resultsDisp)
+  });
 
 });
 
