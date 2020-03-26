@@ -29,6 +29,7 @@ var routes = require("./controller/user_controller.js");
 app.use(routes);
 
 require("./controller/services/authServices.js")(app);
+require("./controller/services/userSavedServices.js")(app);
 
 // Set Handlebars.
 var exphbs = require("express-handlebars");
