@@ -1,58 +1,20 @@
-var db = require("../../../models");
 
 
 module.exports = function(app) {
 
-app.get("/api/posts/", function (req, res){
-    db.Post.findAll({})
-    .then(function(myhero_DB){
-      res.json(myhero_DB);
-    });
-
-   app.get("/api/posts/:id", function(req, res) {
-      db.Post.findOne({
-        where: {
-          id: req.params.id
-        }
-      })
-        .then(function(myhero_DB) {
-          res.json(myhero_DB);
-        });
-    });
-
-    app.post("/api/posts", function(req, res) {
-      console.log(req.body);
-      db.Post.create({
-        title: req.body.title,
-        author: req.body.author,
-        category: req.body.category
-      })
-        .then(function(myhero_DB) {
-          res.json(myhero_DB);
-        });
-    });
-
-    app.delete("/api/posts/:id", function(req, res) {
-      db.Post.destroy({
-        where: {
-          id: req.params.id
-        }
-      })
-        .then(function(myhero_DB) {
-          res.json(myhero_DB);
-        });
-    });
-
-    app.put("/api/posts", function(req, res) {
-      db.Post.update(req.body,
-        {
-          where: {
-            id: req.body.id
-          }
-        })
-        .then(function(myhero_DB) {
-          res.json(myhero_DB);
-        });
-    });
+  // Route for getting some data about our user to be used client side
+  app.get("/api/user_data", function(req, res) {
+    if (!req.user) {
+      // The user is not logged in, send back an empty object
+      res.json({});
+    } else {
+      // Otherwise send back the user's email and id
+      // Sending back a password, even a hashed password, isn't a good idea
+      res.json({
+        email: req.user.email,
+        id: req.user.id
+      });
+    }
   });
+
 }

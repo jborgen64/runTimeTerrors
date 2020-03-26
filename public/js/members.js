@@ -44,8 +44,14 @@ jQuery.each(["put", "delete"], function(i, method) {
   };
 });
 
+let currentUser;
+
+$.get("/api/user_data").then(function(data) {
+    currentUser = data.id;
+  });
+
 $("#savebutton").on("click", function() {
-  $.put("/api/save/:id", {
+  $.put("/api/save/" + currentUser, {
     title: "newsave",
     title1: "anothernewsave"
   })
