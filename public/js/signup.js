@@ -3,6 +3,7 @@ $(document).ready(function() {
   var signUpForm = $("form.signup");
   var emailInput = $("input#email-input");
   var passwordInput = $("input#password-input");
+  
 
 
 
@@ -28,7 +29,8 @@ $(document).ready(function() {
   function signUpUser(email, password) {
     $.post("/api/signup", {
       email: email,
-      password: password
+      password: password,
+      saved: JSON.stringify({})
     })
       .then(function(data) {
         window.location.replace("/members");
