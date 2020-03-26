@@ -47,8 +47,8 @@ jQuery.each(["put", "delete"], function(i, method) {
 let currentUser;
 
 $.get("/api/user_data").then(function(data) {
-    currentUser = data.id;
-  });
+  currentUser = data.id;
+});
 
 $("#savebutton").on("click", function() {
   $.put("/api/save/" + currentUser, {
@@ -62,6 +62,17 @@ $("#savebutton").on("click", function() {
       console.log(err);
     });
 });
+
+$("#getbutton").on("click", function() {
+    $.get("/api/save/" + currentUser)
+      .then(function(response) {
+        console.log("I tried to get");
+        console.log(response)
+      })
+      .catch(function(err) {
+        console.log(err);
+      });
+  });
 
 //================================================================//
 //================================================================//
