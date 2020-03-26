@@ -21,11 +21,32 @@ $('.searchBtn').on('click', function(){
     $('.searchResult').append(resultsDisp);
 });
 
+//display for saved items on dashboard
 
-// //rotating background for each click
-// const backgroundPics = ['superman.jpeg', 'wolverine.jpeg', 'wonder.jpeg', 'martian.jpeg'];
+$('#savedTitles').on('click', function(){
+    console.log('pinned clicked!');
+    const savedItem = "This is where saved displays go";
+    const savedDisplay = $(`<div class="SavedInput">${savedItem}<div>`);
+    $('.dashboardDisplay').append(savedDisplay);
+});
 
-// backgroundPics.forEach(function(pics) {
-//     $('.background').css({'background-image': `url(/images/${pics[i]})`);
-// });
+
+    
+    $('#historyTitles').on('click', function(){
+        console.log('history clicked!');
+        const historyItem = "This is where recent searches go";
+        const historyDisplay = $(`<div class="SavedInput">${historyItem}<div>`);
+        $('.dashboardDisplay').append(historyDisplay);
+    });
+    
+
+
+
+
+
+
+
+
+
+
     
