@@ -46,7 +46,7 @@ jQuery.each(["put", "delete"], function(i, method) {
 });
 
 let currentUser;
-let currentUserSavedData = {};
+let currentUserSavedData;
 
 $.get("/api/user_data").then(function(data) {
   currentUser = data.id;
@@ -70,18 +70,14 @@ $("#getbutton").on("click", function() {
       .then(function(response) {
         console.log("I tried to get");
         console.log(response);
-        currentUserSavedData = response;
+        currentUserSavedData = Object.values(response);
 
-        let holder = $("<div>");
-        let displayEl = $("<h1>").text(currentUserSavedData.title);
-        let displayEl2 = $("<h1>").text(currentUserSavedData.title1);
-        holder.append(displayEl);
-        holder.append(displayEl2);
-
-
-        $(".searchResult").append(holder);
-
-
+        currentUserSavedData.forEach(value => {
+          let holder = $("<div>");
+          let displayEl = $("<h1>").text(value);
+          holder.append(displayEl);
+          $(".searchResult").append(holder);
+        });
       })
       .catch(function(err) {
         console.log(err);
