@@ -1,4 +1,3 @@
-
 //nav items display dashboard and seach divs
 $("#searchDisplay").on("click", function() {
   $(".dashboard").hide(200);
@@ -66,25 +65,25 @@ $("#savebutton").on("click", function() {
 });
 
 $("#getbutton").on("click", function() {
-    $.get("/api/save/" + currentUser)
-      .then(function(response) {
-        console.log("I tried to get");
-        console.log(response);
-        currentUserSavedData = Object.values(response);
+  $.get("/api/save/" + currentUser)
+    .then(function(response) {
+      console.log("I tried to get");
+      console.log(response);
+      currentUserSavedData = Object.values(response);
 
-        currentUserSavedData.forEach(value => {
-          let holder = $("<div>");
-          let displayEl = $("<h1>").text(value);
-          holder.append(displayEl);
-          $(".searchResult").append(holder);
-        });
-      })
-      .catch(function(err) {
-        console.log(err);
+      currentUserSavedData.forEach(value => {
+        let holder = $("<div>");
+        let displayEl = $("<h1>").text(value);
+        displayEl.addClass("white-text");
+        holder.append(displayEl);
+        $(".searchResult").append(holder);
       });
-  });
+    })
+    .catch(function(err) {
+      console.log(err);
+    });
+});
 
-  
 //================================================================//
 //================================================================//
 
