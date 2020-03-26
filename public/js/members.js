@@ -69,9 +69,19 @@ $("#getbutton").on("click", function() {
     $.get("/api/save/" + currentUser)
       .then(function(response) {
         console.log("I tried to get");
-        console.log(response)
+        console.log(response);
         currentUserSavedData = response;
-        console.log(currentUserSavedData);
+
+        let holder = $("<div>");
+        let displayEl = $("<h1>").text(currentUserSavedData.title);
+        let displayEl2 = $("<h1>").text(currentUserSavedData.title1);
+        holder.append(displayEl);
+        holder.append(displayEl2);
+
+
+        $(".searchResult").append(holder);
+
+
       })
       .catch(function(err) {
         console.log(err);
