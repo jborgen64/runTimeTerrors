@@ -84,9 +84,6 @@ $("#getbutton").on("click", function() {
       });
   });
 
-//================================================================//
-//================================================================//
-
 // //rotating background for each click
 // const backgroundPics = ['superman.jpeg', 'wolverine.jpeg', 'wonder.jpeg', 'martian.jpeg'];
 
