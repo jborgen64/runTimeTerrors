@@ -29,6 +29,10 @@ $(".searchBtn").on("click", function() {
   $(".searchResult").append(resultsDisp);
 });
 
+$("#savedTitles").on("click", function() {
+  getUserSaved();
+})
+
 //================================================================//
 //================================================================//
 
@@ -80,6 +84,7 @@ const saveNewComic = () => {
 // function to receive user saved data
 const getUserSaved = () => {
   $(".searchResult").empty();
+  $(".savedComics").empty();
   $.get("/api/save/" + currentUser)
     .then(function(response) {
       console.log("I tried to get");
@@ -91,7 +96,7 @@ const getUserSaved = () => {
         let displayEl = $("<h1>").text(value);
         displayEl.addClass("white-text");
         holder.append(displayEl);
-        $(".searchResult").append(holder);
+        $(".savedComics").append(holder);
       });
     })
     .catch(function(err) {
