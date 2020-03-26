@@ -46,6 +46,7 @@ jQuery.each(["put", "delete"], function(i, method) {
 });
 
 let currentUser;
+let currentUserSavedData = {};
 
 $.get("/api/user_data").then(function(data) {
   currentUser = data.id;
@@ -69,12 +70,15 @@ $("#getbutton").on("click", function() {
       .then(function(response) {
         console.log("I tried to get");
         console.log(response)
+        currentUserSavedData = response;
+        console.log(currentUserSavedData);
       })
       .catch(function(err) {
         console.log(err);
       });
   });
 
+  
 //================================================================//
 //================================================================//
 
