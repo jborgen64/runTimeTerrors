@@ -1,4 +1,3 @@
-var searcheditem = require('../../controller/');
 
 //nav items display dashboard and seach divs
 $("#searchDisplay").on("click", function() {
@@ -31,7 +30,8 @@ $('.searchBtn').on('click', function(){
     const results = $('.searchItem').val().trim();
     console.log(results);
     const resultsDisp = $(`<div class="searchInput">${results}<div>`);
-    $('.searchResult').append(resultsDisp);
+    $('.searchResult').append(resultsDisp)
+  });
 
 
 // code below is for saving data to database, and receiving data from database //

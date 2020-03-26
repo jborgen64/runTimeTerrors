@@ -3,6 +3,8 @@ var express = require("express");
 var session = require("express-session");
 // Requiring passport as we've configured it
 var passport = require("./config/passport");
+const cors = require('cors');
+const corsOptions = require('./config/cors.js');
 
 
 // Setting up port and requiring models for syncing
@@ -18,6 +20,7 @@ app.use(express.static("public"));
 app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(cors(corsOptions));
 // Set Handlebars.
 var exphbs = require("express-handlebars");
 
