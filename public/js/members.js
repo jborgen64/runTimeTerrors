@@ -65,14 +65,14 @@ $("#savebutton").on("click", function() {
 });
 
 $("#getbutton").on("click", function() {
-  $.get("/api/save/" + currentUser)
-    .then(function(response) {
-      console.log("I tried to get");
+  $.get("/api/save/" + currentUser)         // might need to put the get data into it's own func
+    .then(function(response) {              // we need to get data before we save, so we get the obj
+      console.log("I tried to get");        // after we get obj, we need to add to it by doing object.newkey = new value
       console.log(response);
       currentUserSavedData = Object.values(response);
 
-      currentUserSavedData.forEach(value => {
-        let holder = $("<div>");
+      currentUserSavedData.forEach(value => {     // so we'll get every time, but when we are displaying
+        let holder = $("<div>");                   // or the user logs in, we'll just get
         let displayEl = $("<h1>").text(value);
         displayEl.addClass("white-text");
         holder.append(displayEl);
