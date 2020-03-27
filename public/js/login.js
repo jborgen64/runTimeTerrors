@@ -13,7 +13,8 @@ $(document).ready(function() {
     };
 
     if (!userData.email || !userData.password) {
-      return;
+      alert("You did not enter an email and a password.")
+      return 
     }
 
     // If we have an email and password we run the loginUser function and clear the form
@@ -33,6 +34,7 @@ $(document).ready(function() {
         // If there's an error, log the error
       })
       .catch(function(err) {
+        alert("There was a problem. Please try again");
         console.log(err);
       });
   }
