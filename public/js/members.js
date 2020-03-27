@@ -22,8 +22,8 @@ $('.searchBtn').on('click', function(){
  
   const character = $('.searchItem').val().trim();
 
-  $.get("api/comicvine/:" + character, function(res){
-    console.log(res);
+      $.get("api/comicvine/:" + character, function(res){
+        console.log(res);
     // const resultsDisp = $(`<div class="searchInput">${results}<div>`);
     // $('.searchResult').append(resultsDisp)
   })
@@ -32,6 +32,36 @@ $('.searchBtn').on('click', function(){
 $("#savedTitles").on("click", function() {
   getUserSaved();
 })
+
+// search based on id for specific character
+
+  const id = $('.searchItem').val().trim();
+
+      $.get("api/comicvine/character/" + id, function(res){
+        console.log(res);
+  // const resultsDisp = $(`<div class="searchInput">${results}<div>`);
+  // $('.searchResult').append(resultsDisp)
+  });
+
+$("#savedTitles").on("click", function() {
+ getUserSaved();
+  })
+
+
+// // search for issues based on ID number
+
+  const id = $('.searchItem').val().trim();
+
+      $.get("api/comicvine/issues/" + id, function(res){
+        console.log(res);
+  // const resultsDisp = $(`<div class="searchInput">${results}<div>`);
+  // $('.searchResult').append(resultsDisp)
+});
+
+$("#savedTitles").on("click", function() {
+getUserSaved();
+})
+
 
 
 // code below is for saving data to database, and receiving data from database //
