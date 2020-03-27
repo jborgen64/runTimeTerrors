@@ -20,16 +20,7 @@ $("#dashDisplay").on("click", function() {
 //when clicked search button will make API call
 $('.searchBtn').on('click', function(){
 
-    // var queryURL = `http://comicvine.gamespot.com/api/volumes/?api_key=6d585bd220603de589bc80707c5dbd370ac7f030&format=json&sort=name:asc&filter=name:Walking%20Dead`
 
-    // $.ajax({
-    //     url: encodeURI(queryURL),
-    //     dataType: "jsonp",
-    //     method: 'GET'
-    // })
-    // .then(res => {
-    //     console.log(res)
-    // })
 
 
 
@@ -44,9 +35,6 @@ $('.searchBtn').on('click', function(){
 $("#savedTitles").on("click", function() {
   getUserSaved();
 })
-
-//================================================================//
-//================================================================//
 
 
 // code below is for saving data to database, and receiving data from database //

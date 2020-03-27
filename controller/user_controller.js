@@ -30,9 +30,22 @@ router.get("/members", isAuthenticated, function(req, res) {
     userId: req.user.id
   });
 });
+// Jared made this so we know it works.
+// router.get("/api/comicvine/:first/:second/:last", function (req, res) {
+//   var url = 'https://comicvine.gamespot.com/api/' + req.params.first + '/' + req.params.second + '/?api_key=6d585bd220603de589bc80707c5dbd370ac7f030&format=json&' + req.params.last
+//   console.log("URL:", url)
+//   axios.get(url).then((response) => {
+//     console.log(response.data)
+//     res.json(response.data)
+//   })
+//   .catch(function(e) {
+//     console.error("PROXY ERROR:", e)
+//   })
+  
+// })
 
-router.get("/api/comicvine/:first/:second/:last", function (req, res) {
-  var url = 'https://comicvine.gamespot.com/api/' + req.params.first + '/' + req.params.second + '/?api_key=6d585bd220603de589bc80707c5dbd370ac7f030&format=json&' + req.params.last
+router.get("/api/comicvine/:first/:second", function (req, res) {
+  var url = 'https://comicvine.gamespot.com/api/' + req.params.first + '/?api_key=6d585bd220603de589bc80707c5dbd370ac7f030&format=json&sort=name:asc&filter=name:' + req.params.second
   console.log("URL:", url)
   axios.get(url).then((response) => {
     console.log(response.data)
