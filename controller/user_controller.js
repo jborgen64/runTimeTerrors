@@ -1,6 +1,6 @@
 var express = require("express");
-var axios = require('axios')
 var router = express.Router();
+
 
 // Requiring our custom middleware for checking if a user is logged in
 var isAuthenticated = require("../config/middleware/isAuthenticated");
@@ -36,9 +36,22 @@ const data = {
     userId: req.user.id
   });
 });
+// Jared made this so we know it works.
+// router.get("/api/comicvine/:first/:second/:last", function (req, res) {
+//   var url = 'https://comicvine.gamespot.com/api/' + req.params.first + '/' + req.params.second + '/?api_key=6d585bd220603de589bc80707c5dbd370ac7f030&format=json&' + req.params.last
+//   console.log("URL:", url)
+//   axios.get(url).then((response) => {
+//     console.log(response.data)
+//     res.json(response.data)
+//   })
+//   .catch(function(e) {
+//     console.error("PROXY ERROR:", e)
+//   })
+  
+// })
 
-router.get("/api/comicvine/:first/:second/:last", function (req, res) {
-  var url = 'https://comicvine.gamespot.com/api/' + req.params.first + '/' + req.params.second + '/?api_key=6d585bd220603de589bc80707c5dbd370ac7f030&format=json&' + req.params.last
+router.get("/api/comicvine/:first", function (req, res) {
+  var url = 'https://comicvine.gamespot.com/api/characters/?api_key=6d585bd220603de589bc80707c5dbd370ac7f030&format=json&sort=name:asc&filter=name' + req.params.first + '&limit=4'
   console.log("URL:", url)
   axios.get(url).then((response) => {
     console.log(response.data)

@@ -1,7 +1,11 @@
 {
   "development": {
     "username": "root",
+<<<<<<< HEAD
     "password": "ilbid64=",
+=======
+    "password": "Password",
+>>>>>>> 097e737182e1b46c33945e77322dc0ebf283cdd8
     "database": "myhero_DB",
     "host": "127.0.0.1",
     "dialect": "mysql"

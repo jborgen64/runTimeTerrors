@@ -19,6 +19,7 @@ $("#dashDisplay").on("click", function() {
 
 //when clicked search button will make API call
 $('.searchBtn').on('click', function(){
+<<<<<<< HEAD
 
     // var queryURL = `http://comicvine.gamespot.com/api/volumes/?api_key=6d585bd220603de589bc80707c5dbd370ac7f030&format=json&sort=name:asc&filter=name:Walking%20Dead`
 
@@ -41,6 +42,23 @@ $('.searchBtn').on('click', function(){
   });
 
 
+=======
+ 
+  const character = $('.searchItem').val().trim();
+
+  $.get("api/comicvine/:" + character, function(res){
+    console.log(res);
+    // const resultsDisp = $(`<div class="searchInput">${results}<div>`);
+    // $('.searchResult').append(resultsDisp)
+  })
+});
+
+$("#savedTitles").on("click", function() {
+  getUserSaved();
+})
+
+
+>>>>>>> 097e737182e1b46c33945e77322dc0ebf283cdd8
 // code below is for saving data to database, and receiving data from database //
 
 // this code allows me to use $.put and $.delete
@@ -68,6 +86,7 @@ const saveNewComic = () => {
     .then(function(response) {
       console.log("I tried to get");
       console.log(response);
+      
       let newValue = prompt("What should I save?");
       let newKey = Math.floor(Math.random() * 100000000000000);
 
