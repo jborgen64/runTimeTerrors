@@ -60,8 +60,7 @@ router.get("/api/comicvine/:first", function (req, res) {
   })
   .catch(function(e) {
     console.error("PROXY ERROR:", e)
-  })
-  
+  }) 
 })
 
 // Export routes for server.js to use.
