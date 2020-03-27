@@ -25,6 +25,12 @@ router.get("/login", function(req, res) {
 });
 
 router.get("/members", isAuthenticated, function(req, res) {
+
+const data = {
+
+}
+
+
   res.render("members",{
     style: "members.css",
     userId: req.user.id

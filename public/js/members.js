@@ -41,6 +41,14 @@ $('.searchBtn').on('click', function(){
   });
 
 
+$("#savedTitles").on("click", function() {
+  getUserSaved();
+})
+
+//================================================================//
+//================================================================//
+
+
 // code below is for saving data to database, and receiving data from database //
 
 // this code allows me to use $.put and $.delete
@@ -123,6 +131,7 @@ $("#getbutton").on("click", function() {
 // function to receive user saved data
 const getUserSaved = () => {
   $(".searchResult").empty();
+  $(".savedComics").empty();
   $.get("/api/save/" + currentUser)
     .then(function(response) {
       console.log("I tried to get");
@@ -134,8 +143,12 @@ const getUserSaved = () => {
         let displayEl = $("<h1>").text(value);
         displayEl.addClass("white-text");
         holder.append(displayEl);
+<<<<<<< HEAD
         $(".searchResult").append(holder);
 >>>>>>> e84fd5eadfcd9788b943e213a9f32e386f91b2f1
+=======
+        $(".savedComics").append(holder);
+>>>>>>> 8583d1c220644259dfedab8bfaa9fd260d5e47d4
       });
     })
     .catch(function(err) {

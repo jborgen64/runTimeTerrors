@@ -66,6 +66,11 @@ width: 600px;
   margin: 20px;
 }
 
+.savedComics {
+  float: left;
+  margin: 20px;
+}
+
 .searchInput {
   font-size: 70px;
   font: white;
