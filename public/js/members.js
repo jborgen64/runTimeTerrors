@@ -20,8 +20,15 @@ $("#dashDisplay").on("click", function() {
 //when clicked search button will make API call
 $('.searchBtn').on('click', function(){
 
+$.get('https://comicvine.gamespot.com/api/issue/4000-14582/?api_key=6d585bd220603de589bc80707c5dbd370ac7f030&format=json')
+.then(function(data) {
+
+  console.log(data);
+})
     
     //API call here - set returned value to results
+
+
     const results = $('.searchItem').val().trim();
     console.log(results);
     const resultsDisp = $(`<div class="searchInput">${results}<div>`);
