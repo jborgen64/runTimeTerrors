@@ -24,7 +24,7 @@
         <div class="input-field pink lighten-1 searchBar">
           <input id="search" class="searchItem" type="search" required >
         </div>
-        <a class="waves-effect waves-light btn-large pink lighten-1 searchBtn"></i>search</a>
+        <a class="waves-effect waves-light btn-large pink lighten-1 modal-trigger searchBtn" href="#modal1"></i>search</a>
     </form>
 
     <div class="searchResult white-text"></div>
@@ -34,9 +34,19 @@
    <ul class="tabs tabs-transparent">
         <li class="tab "><a id="historyTitles" href="#test1">Recently Viewed Titles</a></li>
         <li class="tab"><a id="savedTitles" href="#test2">Pinned Titles</a></li>
+     <div class="dashboardDisplay"></div>
     </ul>
     <div class="savedComics white-text"></div>
  </div>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content issueDisplay"></div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">close</a>
+    </div>
+  </div>
+ 
 
  </div>
  </div>

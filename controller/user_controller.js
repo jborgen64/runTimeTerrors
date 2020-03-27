@@ -26,6 +26,12 @@ router.get("/login", function(req, res) {
 });
 
 router.get("/members", isAuthenticated, function(req, res) {
+
+const data = {
+
+}
+
+
   res.render("members",{
     style: "members.css",
     userId: req.user.id
@@ -48,6 +54,7 @@ router.get("/members", isAuthenticated, function(req, res) {
 // Axios call for characters by searched name. Will return all characters with searched name
 
 router.get("/api/comicvine/:first", function (req, res) {
+
   var url = 'https://comicvine.gamespot.com/api/characters/?api_key=6d585bd220603de589bc80707c5dbd370ac7f030&format=json&sort=name:asc&filter=name' + req.params.first + '&limit=20'
   console.log("URL:", url)
   axios.get(url).then((response) => {

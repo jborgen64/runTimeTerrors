@@ -2,6 +2,11 @@
 let currentUser;
 let currentUserSavedData;
 
+//opens modal
+ $(document).ready(function(){
+    $('.modal').modal();
+  });
+
 $.get("/api/user_data").then(function(data) {
   currentUser = data.id;
 });
@@ -19,18 +24,66 @@ $("#dashDisplay").on("click", function() {
 
 //when clicked search button will make API call
 $('.searchBtn').on('click', function(){
- 
+
+  //empty div for new content
+  $('.issueDisplay').empty();
+
+  //gets character input from the user search
   const character = $('.searchItem').val().trim();
 
-      $.get("api/comicvine/:" + character, function(res){
-        console.log(res);
-    // const resultsDisp = $(`<div class="searchInput">${results}<div>`);
-    // $('.searchResult').append(resultsDisp)
-  })
+  //this calls to our backend api to proxy around the CORS error we are getting
+  $.get("api/comicvine/:" + character, function(res){
+    console.log(res);
+
+    // for loop for looping throuh all of the results
+    var issueArr = []
+
+    for (var i = 0; i < res.results.length; i++) {
+       //object housing info from our get request
+    var issue = {
+      title: res.results[i].name,
+      cover: res.results[i].image.medium_url
+    };
+
+    //pushing issues into empty array
+    issueArr.push(issue);
+
+    console.log(issueArr);
+    console.log(issueArr.length);
+    //creating a card to display comic issue content in 
+  
+    var displayIssue = `
+    <div class="row">
+      <div class="col s12 m7">
+        <div class="card">
+          <div class="card-image">
+            <img src="${issueArr[i].cover}">
+            <span class="card-title">Card Title</span>
+          </div>
+          <div class="card-content">
+            <h2>${issueArr[i].title}</h2>
+          </div>
+          <div class="card-action">
+            <a href="#">save</a>
+          </div>
+        </div>
+      </div>
+    </div>`
+
+    $('.issueDisplay').append(displayIssue);
+
+    };
+
+    if (issueArr.length === 0) {
+      $('.issueDisplay').append(`<h1>please broaden your search</h1>`);
+    }
+
+  });
 });
 
 $("#savedTitles").on("click", function() {
   getUserSaved();
+
 })
 
 // search based on id for specific character
@@ -110,10 +163,41 @@ const saveNewComic = () => {
     });
 };
 
+//display for saved items on dashboard
+
+$('#savedTitles').on('click', function(){
+    console.log('pinned clicked!');
+    const savedItem = "This is where saved displays go";
+    const savedDisplay = $(`<div class="SavedInput">${savedItem}<div>`);
+    $('.dashboardDisplay').append(savedDisplay);
+});
+
+
+    
+    $('#historyTitles').on('click', function(){
+        console.log('history clicked!');
+        const historyItem = "This is where recent searches go";
+        const historyDisplay = $(`<div class="SavedInput">${historyItem}<div>`);
+        $('.dashboardDisplay').append(historyDisplay);
+    });
+    
+
+
+
+
+$("#getbutton").on("click", function() {
+    $.get("/api/save/" + currentUser)
+      .then(function(response) {
+        console.log("I tried to get");
+        console.log(response)
+      })
+      .catch(function(err) {
+        console.log(err);
+});
+
 // function to receive user saved data
 const getUserSaved = () => {
   $(".searchResult").empty();
-  $(".savedComics").empty();
   $.get("/api/save/" + currentUser)
     .then(function(response) {
       console.log("I tried to get");
@@ -125,17 +209,10 @@ const getUserSaved = () => {
         let displayEl = $("<h1>").text(value);
         displayEl.addClass("white-text");
         holder.append(displayEl);
-        $(".savedComics").append(holder);
+        $(".searchResult").append(holder);
       });
     })
     .catch(function(err) {
       console.log(err);
     });
-};
-
-// //rotating background for each click
-// const backgroundPics = ['superman.jpeg', 'wolverine.jpeg', 'wonder.jpeg', 'martian.jpeg'];
-
-// backgroundPics.forEach(function(pics) {
-//     $('.background').css({'background-image': `url(/images/${pics[i]})`);
-// });
+  }});
