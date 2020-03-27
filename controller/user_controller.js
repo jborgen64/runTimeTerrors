@@ -1,5 +1,6 @@
 var express = require("express");
 var router = express.Router();
+var axios = require("axios");
 
 
 // Requiring our custom middleware for checking if a user is logged in
@@ -51,7 +52,7 @@ const data = {
 // })
 
 router.get("/api/comicvine/:first", function (req, res) {
-  var url = 'https://comicvine.gamespot.com/api/characters/?api_key=6d585bd220603de589bc80707c5dbd370ac7f030&format=json&sort=name:asc&filter=name' + req.params.first + '&limit=4'
+  var url = 'https://comicvine.gamespot.com/api/issues/?api_key=6d585bd220603de589bc80707c5dbd370ac7f030&format=json&filter=name' + req.params.first + '&limit=20'
   console.log("URL:", url)
   axios.get(url).then((response) => {
     console.log(response.data)

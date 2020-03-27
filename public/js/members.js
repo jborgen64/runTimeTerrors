@@ -2,6 +2,11 @@
 let currentUser;
 let currentUserSavedData;
 
+//opens modal
+ $(document).ready(function(){
+    $('.modal').modal();
+  });
+
 $.get("/api/user_data").then(function(data) {
   currentUser = data.id;
 });
@@ -19,38 +24,53 @@ $("#dashDisplay").on("click", function() {
 
 //when clicked search button will make API call
 $('.searchBtn').on('click', function(){
-<<<<<<< HEAD
 
-    // var queryURL = `http://comicvine.gamespot.com/api/volumes/?api_key=6d585bd220603de589bc80707c5dbd370ac7f030&format=json&sort=name:asc&filter=name:Walking%20Dead`
-
-    // $.ajax({
-    //     url: encodeURI(queryURL),
-    //     dataType: "jsonp",
-    //     method: 'GET'
-    // })
-    // .then(res => {
-    //     console.log(res)
-    // })
-
-
-
-    //API call here - set returned value to results
-    const results = $('.searchItem').val().trim();
-    console.log(results);
-    const resultsDisp = $(`<div class="searchInput">${results}<div>`);
-    $('.searchResult').append(resultsDisp);
-  });
-
-
-=======
- 
+  //gets character input from the user search
   const character = $('.searchItem').val().trim();
 
+  //this calls to our backend api to proxy around the CORS error we are getting
   $.get("api/comicvine/:" + character, function(res){
     console.log(res);
-    // const resultsDisp = $(`<div class="searchInput">${results}<div>`);
-    // $('.searchResult').append(resultsDisp)
-  })
+
+    // for loop for looping throuh all of the results
+
+    for (var i = 0; i < res.results.length; i++) {
+       //object housing info from our get request
+    var issue = {
+      title: res.results[i].name,
+      cover: res.results[i].image.icon_url
+    };
+
+    var issueArr = []
+
+    issueArr.push(issue);
+
+    console.log(issueArr);
+
+    var displayIssue = `
+    <div class="row">
+      <div class="col s12 m7">
+        <div class="card">
+          <div class="card-image">
+            <img src="${issueArr.issue.cover}">
+            <span class="card-title">Card Title</span>
+          </div>
+          <div class="card-content">
+            <h2>${issueArr.issue.title}</h2>
+          </div>
+          <div class="card-action">
+            <a href="#">This is a link</a>
+          </div>
+        </div>
+      </div>
+    </div>`
+
+    $('.issueDisplay').append(displayIssue);
+
+    };
+
+
+  });
 });
 
 $("#savedTitles").on("click", function() {
@@ -58,7 +78,6 @@ $("#savedTitles").on("click", function() {
 })
 
 
->>>>>>> 097e737182e1b46c33945e77322dc0ebf283cdd8
 // code below is for saving data to database, and receiving data from database //
 
 // this code allows me to use $.put and $.delete
@@ -157,7 +176,4 @@ const getUserSaved = () => {
     .catch(function(err) {
       console.log(err);
     });
-};
-
-
-    
+  }});
