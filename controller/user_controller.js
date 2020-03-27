@@ -1,5 +1,5 @@
 var express = require("express");
-
+var axios = require('axios')
 var router = express.Router();
 
 // Requiring our custom middleware for checking if a user is logged in
@@ -31,6 +31,18 @@ router.get("/members", isAuthenticated, function(req, res) {
   });
 });
 
+router.get("/api/comicvine/:first/:second/:last", function (req, res) {
+  var url = 'https://comicvine.gamespot.com/api/' + req.params.first + '/' + req.params.second + '/?api_key=6d585bd220603de589bc80707c5dbd370ac7f030&format=json&' + req.params.last
+  console.log("URL:", url)
+  axios.get(url).then((response) => {
+    console.log(response.data)
+    res.json(response.data)
+  })
+  .catch(function(e) {
+    console.error("PROXY ERROR:", e)
+  })
+  
+})
 
 // Export routes for server.js to use.
 module.exports = router;
