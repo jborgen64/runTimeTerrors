@@ -1,6 +1,6 @@
 var express = require("express");
-var axios = require('axios')
 var router = express.Router();
+
 
 // Requiring our custom middleware for checking if a user is logged in
 var isAuthenticated = require("../config/middleware/isAuthenticated");
