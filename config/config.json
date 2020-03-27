@@ -1,15 +1,7 @@
 {
   "development": {
     "username": "root",
-<<<<<<< HEAD
     "password": "Password",
-=======
-<<<<<<< HEAD
-    "password": "Password",
-=======
-    "password": "300582mK!",
->>>>>>> cc5b07bdf5fa408a8006edd97565197a121b06a9
->>>>>>> aa7e0cc6fb7c623f2aa4067d07c52304411c83b9
     "database": "myhero_DB",
     "host": "127.0.0.1",
     "dialect": "mysql"

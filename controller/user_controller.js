@@ -44,8 +44,8 @@ router.get("/members", isAuthenticated, function(req, res) {
   
 // })
 
-router.get("/api/comicvine/:first/:second", function (req, res) {
-  var url = 'https://comicvine.gamespot.com/api/' + req.params.first + '/?api_key=6d585bd220603de589bc80707c5dbd370ac7f030&format=json&sort=name:asc&filter=name:' + req.params.second
+router.get("/api/comicvine/:first", function (req, res) {
+  var url = 'https://comicvine.gamespot.com/api/characters/?api_key=6d585bd220603de589bc80707c5dbd370ac7f030&format=json&sort=name:asc&filter=name' + req.params.first + '&limit=4'
   console.log("URL:", url)
   axios.get(url).then((response) => {
     console.log(response.data)

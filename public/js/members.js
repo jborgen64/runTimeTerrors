@@ -19,26 +19,15 @@ $("#dashDisplay").on("click", function() {
 
 //when clicked search button will make API call
 $('.searchBtn').on('click', function(){
+ 
+  const character = $('.searchItem').val().trim();
 
-<<<<<<< HEAD
-
-=======
-$.get('https://comicvine.gamespot.com/api/issue/4000-14582/?api_key=6d585bd220603de589bc80707c5dbd370ac7f030&format=json')
-.then(function(data) {
->>>>>>> aa7e0cc6fb7c623f2aa4067d07c52304411c83b9
-
-  console.log(data);
-})
-    
-    //API call here - set returned value to results
-
-
-    const results = $('.searchItem').val().trim();
-    console.log(results);
-    const resultsDisp = $(`<div class="searchInput">${results}<div>`);
-    $('.searchResult').append(resultsDisp)
-  });
-
+  $.get("api/comicvine/:" + character, function(res){
+    console.log(res);
+    // const resultsDisp = $(`<div class="searchInput">${results}<div>`);
+    // $('.searchResult').append(resultsDisp)
+  })
+});
 
 $("#savedTitles").on("click", function() {
   getUserSaved();
