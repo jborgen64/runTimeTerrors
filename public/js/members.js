@@ -25,6 +25,9 @@ $("#dashDisplay").on("click", function() {
 //when clicked search button will make API call
 $('.searchBtn').on('click', function(){
 
+  //empty div for new content
+  $('.issueDisplay').empty();
+
   //gets character input from the user search
   const character = $('.searchItem').val().trim();
 
@@ -33,33 +36,35 @@ $('.searchBtn').on('click', function(){
     console.log(res);
 
     // for loop for looping throuh all of the results
+    var issueArr = []
 
     for (var i = 0; i < res.results.length; i++) {
        //object housing info from our get request
     var issue = {
       title: res.results[i].name,
-      cover: res.results[i].image.icon_url
+      cover: res.results[i].image.medium_url
     };
 
-    var issueArr = []
-
+    //pushing issues into empty array
     issueArr.push(issue);
 
     console.log(issueArr);
-
+    console.log(issueArr.length);
+    //creating a card to display comic issue content in 
+  
     var displayIssue = `
     <div class="row">
       <div class="col s12 m7">
         <div class="card">
           <div class="card-image">
-            <img src="${issueArr.issue.cover}">
+            <img src="${issueArr[i].cover}">
             <span class="card-title">Card Title</span>
           </div>
           <div class="card-content">
-            <h2>${issueArr.issue.title}</h2>
+            <h2>${issueArr[i].title}</h2>
           </div>
           <div class="card-action">
-            <a href="#">This is a link</a>
+            <a href="#">save</a>
           </div>
         </div>
       </div>
@@ -69,12 +74,16 @@ $('.searchBtn').on('click', function(){
 
     };
 
+    if (issueArr.length === 0) {
+      $('.issueDisplay').append(`<h1>please broaden your search</h1>`);
+    }
 
   });
 });
 
 $("#savedTitles").on("click", function() {
   getUserSaved();
+
 })
 
 
