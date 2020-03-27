@@ -1,8 +1,8 @@
 const axios = require('axios');
 
-async function makeRequest() {
 
-    const searchparam = $("#search").results();
+const makeRequest = async function() {
+
 
     const config = {
         method: 'GET',
@@ -14,11 +14,8 @@ async function makeRequest() {
     console.log(res.status);
 }
 
-$('#searchBtn').on('click',function() {
+module.exports = makeRequest;
 
-makeRequest();
-
-});
 
 // $('#button').on('click',function() {
 

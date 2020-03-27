@@ -63,6 +63,7 @@ const saveNewComic = () => {
     .then(function(response) {
       console.log("I tried to get");
       console.log(response);
+      
       let newValue = prompt("What should I save?");
       let newKey = Math.floor(Math.random() * 100000000000000);
 
