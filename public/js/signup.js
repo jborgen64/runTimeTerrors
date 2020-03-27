@@ -3,9 +3,6 @@ $(document).ready(function() {
   var signUpForm = $("form.signup");
   var emailInput = $("input#email-input");
   var passwordInput = $("input#password-input");
-  
-
-
 
   // When the signup button is clicked, we validate the email and password are not blank
   signUpForm.on("submit", function(event) {
@@ -16,6 +13,7 @@ $(document).ready(function() {
     };
 
     if (!userData.email || !userData.password) {
+      alert("Something has happened. Please make sure you have entered an email and a password, and ensure they are correct.")
       return;
     }
     // If we have an email and password, run the signUpUser function
