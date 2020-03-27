@@ -13,7 +13,7 @@ $(document).ready(function() {
     };
 
     if (!userData.email || !userData.password) {
-      alert("Please enter an email and a password")
+      alert("Something has happened. Please make sure you have entered an email and a password, and ensure they are correct.")
       return;
     }
     // If we have an email and password, run the signUpUser function

@@ -4,6 +4,7 @@ $(document).ready(function() {
   var emailInput = $("input#email-input");
   var passwordInput = $("input#password-input");
 
+  
   // When the form is submitted, we validate there's an email and password entered
   loginForm.on("submit", function(event) {
     event.preventDefault();
@@ -13,7 +14,7 @@ $(document).ready(function() {
     };
 
     if (!userData.email || !userData.password) {
-      alert("You did not enter an email and a password.")
+      alert("Something has happened. Please make sure you have entered an email and a password, and ensure they are correct.")
       return 
     }
 
@@ -34,7 +35,7 @@ $(document).ready(function() {
         // If there's an error, log the error
       })
       .catch(function(err) {
-        alert("There was a problem. Please try again");
+        alert("Something has happened. Please make sure you have entered an email and a password, and ensure they are correct.")
         console.log(err);
       });
   }
