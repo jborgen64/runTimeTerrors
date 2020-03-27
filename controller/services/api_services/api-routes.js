@@ -1,9 +1,9 @@
 
 
-module.exports = function(app) {
+module.exports = function (app) {
 
   // Route for getting some data about our user to be used client side
-  app.get("/api/user_data", function(req, res) {
+  app.get("/api/user_data", function (req, res) {
     if (!req.user) {
       // The user is not logged in, send back an empty object
       res.json({});
@@ -16,5 +16,6 @@ module.exports = function(app) {
       });
     }
   });
+
 
 }
