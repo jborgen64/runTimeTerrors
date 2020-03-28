@@ -29,6 +29,10 @@
   background-position: center;
 }
 
+.searchin {
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
 
 .searchContainer {
   float: left;
@@ -86,4 +90,14 @@ width: 600px;
 .searchInput {
   font-size: 70px;
   font: white;
+}
+
+.issueCard {
+  display: inline-block;
+}
+
+.card {
+  width: 200px;
+  height: 400px;
+  margin: 20px;
 }
