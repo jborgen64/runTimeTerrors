@@ -1,57 +1,56 @@
 <div class="background">
-    <div class="row member">
+  <div class="row member">
 
-      <nav class="black navvy ">
-        <div class="nav-wrapper">
-          
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li id="searchDisplay"><a>Search</a></li>
-            <li id="dashDisplay"><a>Dashboard</a></li>
-            <li><a href="/logout">Logout</a></li>
-          </ul>
-        </div>
-      </nav>
+    <nav class="black navvy ">
+      <div class="nav-wrapper">
 
-      <div class="col m4 offset-m1 searchContainer">
-
-        <div>
-          <a href="#" class="brand-logo" id="icos">
-            <img class="favicon" src="images/baticon.png">
-            <img class="favicon" src="images/spideyicon.png">
-            <img class="favicon" src="images/americaicon.png">
-            <img class="favicon" src="images/ironicon.png">
-          </a>
-          <h1 class="white-text">Search Characters</h1>
-        </div>
-        
-        <form>
-          <div class="input-field white black-text searchBar">
-            <input id="search" class="searchItem" type="search" placeholder="Enter Charecter Name to Search.." required>
-          </div>
-          <a class="waves-effect waves-light btn-large white black-text searchBtn modal-trigger" href="#modal1"></i>search</a>
-        </form>
-
-        <div class="searchResult white-text"></div>
-      </div>
-
-      <div class="col m4 offset-m1 dashboard">
-        <ul class="tabs tabs-transparent">
-          <li class="tab "><a id="historyTitles" href="#test1">Recently Viewed Titles</a></li>
-          <li class="tab"><a id="savedTitles" href="#test2">Pinned Titles</a></li>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li id="searchDisplay"><a>Search</a></li>
+          <li id="dashDisplay"><a>Dashboard</a></li>
+          <li><a href="/logout">Logout</a></li>
         </ul>
-        <div class="savedComics white-text"></div>
+      </div>
+    </nav>
+
+    <div class="col m4 offset-m1 searchContainer">
+      <div>
+
+        <a href="#" class="brand-logo">
+          <img class="favicon" src="images/baticon.png">
+          <img class="favicon" src="images/spideyicon.png">
+          <img class="favicon" src="images/americaicon.png">
+          <img class="favicon" src="images/ironicon.png">
+        </a>
+        <h1 class="white-text searchin">Search Characters</h1>
       </div>
 
-  <!-- Modal Structure -->
-  <div id="modal1" class="modal modal-fixed-footer">
-      <div class="row">
-    <div class="modal-content col s6 issueDisplay"></div>
+      <form>
+        <div class="input-field white black-text searchBar">
+          <input id="search" class="searchItem" type="search" placeholder="Enter Charecter Name to Search.." required>
+        </div>
+        <a class="waves-effect waves-light btn-large white black-text modal-trigger searchBtn" href="#modal1"></i>search</a>
+      </form>
+
+      <div class="searchResult white-text"></div>
     </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-red btn-flat">close</a>
-      </div>
-      </div>
 
-    
+    <div class="col m4 offset-m1 dashboard">
+      <ul class="tabs tabs-transparent">
+        <li class="tab "><a id="historyTitles" href="#test1">Recently Viewed Titles</a></li>
+        <li class="tab"><a id="savedTitles" href="#test2">Pinned Titles</a></li>
+      </ul>
+      <div class="savedComics white-text"></div>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal modal-fixed-footer">
+      <div class="row">
+        <div class="modal-content col s6 issueDisplay"></div>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-red btn-flat">close</a>
+
+      </div>
+    </div>
   </div>
 </div>
