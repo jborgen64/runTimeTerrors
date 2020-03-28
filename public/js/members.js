@@ -64,7 +64,7 @@ $(".searchBtn").on("click", function() {
             <p>${issueArr[i].title}</p>
           </div>
           <div class="card-action">
-            <a href="#">save</a>
+            <button class="savecomic">save</button>
           </div>
         </div>
       </div>
@@ -97,7 +97,6 @@ $("#savedTitles").on("click", function() {
 //  getUserSaved();
 //   })
 
-
 // // // search for issues based on ID number
 
 //   const id = $('.searchItem').val().trim();
@@ -111,8 +110,6 @@ $("#savedTitles").on("click", function() {
 // $("#savedTitles").on("click", function() {
 // getUserSaved();
 // })
-
-
 
 // code below is for saving data to database, and receiving data from database //
 
@@ -142,9 +139,9 @@ const saveNewComic = (title, urlPic) => {
       console.log("I tried to get");
       console.log(response);
 
-      let newObj = {}
+      let newObj = {};
       newObj.title = title;
-      newObj.urlPic = urlPic
+      newObj.urlPic = urlPic;
 
       response.savingArray.push(newObj);
 
@@ -163,18 +160,9 @@ const saveNewComic = (title, urlPic) => {
 
 //display for saved items on dashboard
 
-$("#savedTitles").on("click", function() {
-  console.log("pinned clicked!");
-  const savedItem = "This is where saved displays go";
-  const savedDisplay = $(`<div class="SavedInput">${savedItem}<div>`);
-  $(".dashboardDisplay").append(savedDisplay);
-});
-
-$("#historyTitles").on("click", function() {
-  console.log("history clicked!");
-  const historyItem = "This is where recent searches go";
-  const historyDisplay = $(`<div class="SavedInput">${historyItem}<div>`);
-  $(".dashboardDisplay").append(historyDisplay);
+$(".issueDisplay").on("click", ".savecomic", function() {
+  saveNewComic("faketitle", "fakeurl");
+  console.log("someone clicked the save comic button");
 });
 
 $("#getbutton").on("click", function() {
@@ -194,9 +182,8 @@ $("#getbutton").on("click", function() {
       .then(function(response) {
         console.log("I tried to get");
         console.log(response);
-        
-        //response is an object, which holds an array, of objects
 
+        //response is an object, which holds an array, of objects
       })
       .catch(function(err) {
         console.log(err);
