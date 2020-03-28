@@ -27,10 +27,20 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
+  background-size: cover;
+  display: block;
+  margin-bottom: 0px;
+  padding: 0px;
+  border-bottom: 500px, black, solid;
 }
 
 .searchin {
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+#savedTitles {
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
 }
 
 
