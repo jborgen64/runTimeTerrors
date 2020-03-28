@@ -55,7 +55,7 @@ $(".searchBtn").on("click", function() {
       //creating a card to display comic issue content in
 
       var displayIssue = `
-    <div class="row">
+    <div class="row issueCard">
       <div class="col s12 m7">
         <div class="card">
           <div class="card-image">
