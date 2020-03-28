@@ -136,16 +136,17 @@ jQuery.each(["put", "delete"], function(i, method) {
 });
 
 // function to save new comic to database
-const saveNewComic = () => {
+const saveNewComic = (title, urlPic) => {
   $.get("/api/save/" + currentUser)
     .then(function(response) {
       console.log("I tried to get");
       console.log(response);
 
-      let newValue = prompt("What should I save?");
-      let newKey = Math.floor(Math.random() * 100000000000000);
+      let newObj = {}
+      newObj.title = title;
+      newObj.urlPic = urlPic
 
-      response[newKey] = newValue;
+      response.savingArray.push(newObj);
 
       $.put("/api/save/" + currentUser, response)
         .then(function() {
@@ -193,15 +194,10 @@ $("#getbutton").on("click", function() {
       .then(function(response) {
         console.log("I tried to get");
         console.log(response);
-        currentUserSavedData = Object.values(response);
+        
+        //response is an object, which holds an array, of objects
 
-        currentUserSavedData.forEach(value => {
-          let holder = $("<div>");
-          let displayEl = $("<h1>").text(value);
-          displayEl.addClass("white-text");
-          holder.append(displayEl);
-          $(".searchResult").append(holder);
-        });
+        
       })
       .catch(function(err) {
         console.log(err);
