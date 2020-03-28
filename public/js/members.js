@@ -197,7 +197,6 @@ $("#getbutton").on("click", function() {
         
         //response is an object, which holds an array, of objects
 
-        
       })
       .catch(function(err) {
         console.log(err);
