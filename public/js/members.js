@@ -142,8 +142,6 @@ const saveNewComic = (title, issueNum, urlPic) => {
       newObj.urlPic = urlPic;
       newObj.issueNum = issueNum;
 
-      let savingArray = [];
-
       response.savingArray.push(newObj);
 
       $.put("/api/save/" + currentUser, response)
