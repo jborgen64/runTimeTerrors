@@ -53,15 +53,14 @@ $('.searchBtn').on('click', function(){
     //creating a card to display comic issue content in 
   
     var displayIssue = `
-    <div class="row">
+    <div class="row issueCard">
       <div class="col s12 m7">
         <div class="card">
           <div class="card-image">
             <img src="${issueArr[i].cover}">
-            <span class="card-title">Card Title</span>
           </div>
           <div class="card-content">
-            <h2>${issueArr[i].title}</h2>
+            <p>${issueArr[i].title}</p>
           </div>
           <div class="card-action">
             <a href="#">save</a>
@@ -85,6 +84,36 @@ $("#savedTitles").on("click", function() {
   getUserSaved();
 
 })
+
+// // search based on id for specific character
+
+//   const id = $('.searchItem').val().trim();
+
+//       $.get("api/comicvine/character/" + id, function(res){
+//         console.log(res);
+//   // const resultsDisp = $(`<div class="searchInput">${results}<div>`);
+//   // $('.searchResult').append(resultsDisp)
+//   });
+
+// $("#savedTitles").on("click", function() {
+//  getUserSaved();
+//   })
+
+
+// // // search for issues based on ID number
+
+//   const id = $('.searchItem').val().trim();
+
+//       $.get("api/comicvine/issues/" + id, function(res){
+//         console.log(res);
+//   // const resultsDisp = $(`<div class="searchInput">${results}<div>`);
+//   // $('.searchResult').append(resultsDisp)
+// });
+
+// $("#savedTitles").on("click", function() {
+// getUserSaved();
+// })
+
 
 
 // code below is for saving data to database, and receiving data from database //
