@@ -44,7 +44,8 @@ $(".searchBtn").on("click", function() {
       var issue = {
         title: res.results[i].name,
         cover: res.results[i].image.medium_url,
-        issuenum: res.results[i].issue_number
+        issuenum: res.results[i].issue_number,
+        issueId: res.results[i].id
       };
 
       //pushing issues into empty array
@@ -170,7 +171,7 @@ $("#savedTitles").on("click", function() {
       console.log("I tried to get");
       console.log(response);
 
-      let savedArray = response.savingArray;
+      var savedArray = response.savingArray;
       let issueArr = [];
 
       for (var i = 0; i < savedArray.length; i++) {
