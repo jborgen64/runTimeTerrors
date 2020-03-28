@@ -9,6 +9,7 @@
 
 .navvy {
   background: inherit;
+  background-color: #424242;
 }
 
 .navHolder {
@@ -16,22 +17,23 @@
 }
 
 .member {
-  height: 800px;
+  height: 1000px;
   padding: 0px;
 }
 
 .background {
-  background-image: url("/images/superman.jpeg");
-  background-repeat: repeat-y;
+  background-image: url("/images/cityscape.jpg");
+  background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
   background-size: 100%;
 }
 
+
 .searchContainer {
   float: left;
-  margin-top: 0px;
-  padding-top: 0px;
+  margin: 15px;
+  padding: 15px;
 }
 
 .dashboard {
@@ -57,8 +59,18 @@
   margin: 10px;
 }
 
+.searchBtn:hover {
+  background-color: red;
+  color: red;
+}
+
 .searchBar {
 width: 600px;
+}
+
+#search {
+  border: 1px solid black;
+  border-radius: 2px;
 }
 
 .searchResult {
