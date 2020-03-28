@@ -14,6 +14,15 @@ if (config.use_env_variable) {
   var sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
+// checks if env is Heroku, if so, sets sequelize to utilize the database hosted on heroku
+if (process.env.DATABASE_URL) {
+  // the application is executed on Heroku ... use the postgres database
+  sequelize = new Sequelize(process.env.DATABASE_URL, {
+    dialect:  'postgres',
+    protocol: 'postgres'
+  })
+};
+
 fs
   .readdirSync(__dirname)
   .filter(function(file) {
