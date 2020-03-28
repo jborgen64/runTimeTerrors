@@ -43,7 +43,8 @@ $(".searchBtn").on("click", function() {
       //object housing info from our get request
       var issue = {
         title: res.results[i].name,
-        cover: res.results[i].image.medium_url
+        cover: res.results[i].image.medium_url,
+        issuenum: res.results[i].issue_number
       };
 
       //pushing issues into empty array
@@ -61,7 +62,7 @@ $(".searchBtn").on("click", function() {
             <img src="${issueArr[i].cover}">
           </div>
           <div class="card-content">
-            <p>${issueArr[i].title}</p>
+            <p>${issueArr[i].title}, issue: ${issueArr[i].issuenum}</p>
           </div>
           <div class="card-action">
             <button class="savecomic">save</button>

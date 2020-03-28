@@ -44,21 +44,19 @@ router.get("/members", isAuthenticated, function(req, res) {
 
 // Axios call for characters by searched name. Will return all characters with searched name
 
-router.get("/api/comicvine/:first", function(req, res) {
-  var url =
-    "https://comicvine.gamespot.com/api/issues/?api_key=6d585bd220603de589bc80707c5dbd370ac7f030&format=json&sort=name:asc&filter=name" +
-    req.params.first +
-    "&limit=20";
-  console.log("URL:", url);
-  axios
-    .get(url)
-    .then(response => {
-      console.log(response.data);
-      res.json(response.data);
-    })
-    .catch(function(e) {
-      console.error("PROXY ERROR:", e);
-    });
+
+router.get("/api/comicvine/:first", function (req, res) {
+
+  var url = 'https://comicvine.gamespot.com/api/issues/?api_key=6d585bd220603de589bc80707c5dbd370ac7f030&format=json&sort=name:asc&filter=name' + req.params.first + '&limit=50'
+  console.log("URL:", url)
+  axios.get(url).then((response) => {
+    console.log(response.data)
+    res.json(response.data)
+  })
+  .catch(function(e) {
+    console.error("PROXY ERROR:", e)
+  })
+  
 });
 
 // Axios call for issues by searching character ID
