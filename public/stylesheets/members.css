@@ -87,3 +87,13 @@ width: 600px;
   font-size: 70px;
   font: white;
 }
+
+.issueCard {
+  display: inline-block;
+}
+
+.card {
+  width: 200px;
+  height: 400px;
+  margin: 20px;
+}
