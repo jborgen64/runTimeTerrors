@@ -43,7 +43,8 @@ $(".searchBtn").on("click", function() {
       //object housing info from our get request
       var issue = {
         title: res.results[i].name,
-        cover: res.results[i].image.medium_url
+        cover: res.results[i].image.medium_url,
+        issuenum: res.results[i].issue_number
       };
 
       //pushing issues into empty array
@@ -61,10 +62,10 @@ $(".searchBtn").on("click", function() {
             <img src="${issueArr[i].cover}">
           </div>
           <div class="card-content">
-            <p>${issueArr[i].title}</p>
+            <p>${issueArr[i].title}, issue: ${issueArr[i].issuenum}</p>
           </div>
           <div class="card-action">
-            <a href="#">save</a>
+            <button class="savecomic">save</button>
           </div>
         </div>
       </div>
@@ -77,10 +78,6 @@ $(".searchBtn").on("click", function() {
       $(".issueDisplay").append(`<h1>please broaden your search</h1>`);
     }
   });
-});
-
-$("#savedTitles").on("click", function() {
-  getUserSaved();
 });
 
 // // search based on id for specific character
@@ -97,7 +94,6 @@ $("#savedTitles").on("click", function() {
 //  getUserSaved();
 //   })
 
-
 // // // search for issues based on ID number
 
 //   const id = $('.searchItem').val().trim();
@@ -111,8 +107,6 @@ $("#savedTitles").on("click", function() {
 // $("#savedTitles").on("click", function() {
 // getUserSaved();
 // })
-
-
 
 // code below is for saving data to database, and receiving data from database //
 
@@ -136,16 +130,18 @@ jQuery.each(["put", "delete"], function(i, method) {
 });
 
 // function to save new comic to database
-const saveNewComic = () => {
+const saveNewComic = (title, issueNum, urlPic) => {
   $.get("/api/save/" + currentUser)
     .then(function(response) {
       console.log("I tried to get");
       console.log(response);
 
-      let newValue = prompt("What should I save?");
-      let newKey = Math.floor(Math.random() * 100000000000000);
+      let newObj = {};
+      newObj.title = title;
+      newObj.urlPic = urlPic;
+      newObj.issueNum = issueNum;
 
-      response[newKey] = newValue;
+      response.savingArray.push(newObj);
 
       $.put("/api/save/" + currentUser, response)
         .then(function() {
@@ -162,49 +158,58 @@ const saveNewComic = () => {
 
 //display for saved items on dashboard
 
+$(".issueDisplay").on("click", ".savecomic", function() {
+  saveNewComic("faketitle", "fakeissuenum", "fakeurl");
+  console.log("someone clicked the save comic button");
+});
+
 $("#savedTitles").on("click", function() {
-  console.log("pinned clicked!");
-  const savedItem = "This is where saved displays go";
-  const savedDisplay = $(`<div class="SavedInput">${savedItem}<div>`);
-  $(".dashboardDisplay").append(savedDisplay);
-});
-
-$("#historyTitles").on("click", function() {
-  console.log("history clicked!");
-  const historyItem = "This is where recent searches go";
-  const historyDisplay = $(`<div class="SavedInput">${historyItem}<div>`);
-  $(".dashboardDisplay").append(historyDisplay);
-});
-
-$("#getbutton").on("click", function() {
+  $(".issueDisplay").empty();
   $.get("/api/save/" + currentUser)
     .then(function(response) {
       console.log("I tried to get");
       console.log(response);
+
+      let savedArray = response.savingArray;
+      let issueArr = [];
+
+      for (var i = 0; i < savedArray.length; i++) {
+        //object housing info from our get request
+        var issue = {
+          title: savedArray[i].title,
+          cover: savedArray[i].urlPic,
+          issueNum: savedArray[i].issueNum
+        };
+
+        //pushing issues into empty array
+        issueArr.push(issue);
+
+        console.log(issueArr);
+        console.log(issueArr.length);
+        //creating a card to display comic issue content in
+
+        var displayIssue = `
+      <div class="row">
+        <div class="col s12 m7">
+          <div class="card">
+            <div class="card-image">
+              <img src="${issueArr[i].cover}">
+            </div>
+            <div class="card-content">
+              <p>${issueArr[i].title}</p>
+            </div>
+            <div class="card-action">
+              <button class="savecomic">save</button>
+            </div>
+          </div>
+        </div>
+      </div>`;
+
+        $(".issueDisplay").append(displayIssue);
+      }
     })
     .catch(function(err) {
       console.log(err);
     });
-
-  // function to receive user saved data
-  const getUserSaved = () => {
-    $(".searchResult").empty();
-    $.get("/api/save/" + currentUser)
-      .then(function(response) {
-        console.log("I tried to get");
-        console.log(response);
-        currentUserSavedData = Object.values(response);
-
-        currentUserSavedData.forEach(value => {
-          let holder = $("<div>");
-          let displayEl = $("<h1>").text(value);
-          displayEl.addClass("white-text");
-          holder.append(displayEl);
-          $(".searchResult").append(holder);
-        });
-      })
-      .catch(function(err) {
-        console.log(err);
-      });
-  };
 });
+
