@@ -19,6 +19,7 @@
 .member {
   height: 1000px;
   padding: 0px;
+  margin: 0px;
 }
 
 .background {
@@ -26,7 +27,10 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-  background-size: 100%;
+}
+
+.searchin {
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 
