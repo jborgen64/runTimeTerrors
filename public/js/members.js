@@ -60,13 +60,13 @@ $(".searchBtn").on("click", function() {
       <div class="col s12 m7">
         <div class="card">
           <div class="card-image">
-            <img src="${issueArr[i].cover}">
+            <img id="url" src="${issueArr[i].cover}">
           </div>
           <div class="card-content">
-            <p>${issueArr[i].title}, issue: ${issueArr[i].issuenum}</p>
+            <p id="title">${issueArr[i].title}, issue: ${issueArr[i].issuenum}</p>
           </div>
           <div class="card-action">
-            <button class="savecomic">save</button>
+            <button class="savecomic" data-url="${issueArr[i].cover}" data-title="${issueArr[i].title}" data-issue="${issueArr[i].issuenum}" >save</button>
           </div>
         </div>
       </div>
@@ -74,6 +74,18 @@ $(".searchBtn").on("click", function() {
 
       $(".issueDisplay").append(displayIssue);
     }
+
+    $(".savecomic").on("click", function(event) {
+      event.preventDefault();
+      let title = $(this).data("title");
+      let url = $(this).data("url");
+      let issueNum = $(this).data("issue");
+    
+    
+      console.log(title + "  " + url);
+      saveNewComic(title, issueNum, url);
+      console.log("someone clicked the save comic button");
+    });
 
     if (issueArr.length === 0) {
       $(".issueDisplay").append(`<h1>please broaden your search</h1>`);
@@ -159,10 +171,7 @@ const saveNewComic = (title, issueNum, urlPic) => {
 
 //display for saved items on dashboard
 
-$(".issueDisplay").on("click", ".savecomic", function() {
-  saveNewComic("faketitle", "fakeissuenum", "fakeurl");
-  console.log("someone clicked the save comic button");
-});
+
 
 $("#savedTitles").on("click", function() {
   $(".issueDisplay").empty();
@@ -173,6 +182,7 @@ $("#savedTitles").on("click", function() {
 
       var savedArray = response.savingArray;
       let issueArr = [];
+      console.log(savedArray);
 
       for (var i = 0; i < savedArray.length; i++) {
         //object housing info from our get request
@@ -194,10 +204,10 @@ $("#savedTitles").on("click", function() {
         <div class="col s12 m7">
           <div class="card">
             <div class="card-image">
-              <img src="${issueArr[i].cover}">
+              <img id="url" src="${issueArr[i].cover}">
             </div>
             <div class="card-content">
-              <p>${issueArr[i].title}</p>
+              <p id="title" data-title="${issueArr[i].title}" data-issue="${issueArr[i].issuenum}">${issueArr[i].title}, issue # ${issueArr[i].issuenum}</p>
             </div>
             <div class="card-action">
               <button class="savecomic">save</button>
