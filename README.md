@@ -15,9 +15,11 @@
 
 
 ## Core Functionality
+
 - Using Authentication and a Database, this app provides information that the user has searched for or saved to their profile.
 - User can search for a comic book or manga character, and will be shown a list of comics that the character has appeared in.
 - User can save comics they want to check out later or catalog, and can delete previously saved comics from their pinned list.
+
 
 ### Technology Used
 - FRONT END - Handlebars, Materialize CSS, JQUERY
@@ -25,4 +27,6 @@
 - THIRD PARTY API - Our app relies upon the ComicVine API https://comicvine.gamespot.com/
 
 
+
 Created by Tyler Boyd, Jacob Borgen, Michael Bowman, and Kyle Clark
+
