@@ -26,7 +26,7 @@
 - BACK END - Node, Express, Passport, Sequelize, Axios
 - THIRD PARTY API - Our app relies upon the ComicVine API https://comicvine.gamespot.com/
 
-
+Github: https://github.com/jborgen64/runTimeTerrors
 
 Created by Tyler Boyd, Jacob Borgen, Michael Bowman, and Kyle Clark
 
