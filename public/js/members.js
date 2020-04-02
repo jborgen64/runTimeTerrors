@@ -93,34 +93,6 @@ $(".searchBtn").on("click", function() {
   });
 });
 
-// // search based on id for specific character
-
-//   const id = $('.searchItem').val().trim();
-
-//       $.get("api/comicvine/character/" + id, function(res){
-//         console.log(res);
-//   // const resultsDisp = $(`<div class="searchInput">${results}<div>`);
-//   // $('.searchResult').append(resultsDisp)
-//   });
-
-// $("#savedTitles").on("click", function() {
-//  getUserSaved();
-//   })
-
-// // // search for issues based on ID number
-
-//   const id = $('.searchItem').val().trim();
-
-//       $.get("api/comicvine/issues/" + id, function(res){
-//         console.log(res);
-//   // const resultsDisp = $(`<div class="searchInput">${results}<div>`);
-//   // $('.searchResult').append(resultsDisp)
-// });
-
-// $("#savedTitles").on("click", function() {
-// getUserSaved();
-// })
-
 // code below is for saving data to database, and receiving data from database //
 
 // this code allows me to use $.put and $.delete
